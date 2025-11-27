@@ -1,9 +1,6 @@
 import java.util.Scanner;
 
-/**
- * Main class that serves as the entry point for the Directory Analysis System.
- * This program analyzes a directory to count Java files and identify solved issues.
- */
+
 public class DirectoryAnalyzerApp {
 
     public static void main(String[] args) {
@@ -11,9 +8,7 @@ public class DirectoryAnalyzerApp {
         app.start();
     }
 
-    /**
-     * Starts the directory analysis application
-     */
+
     public void start() {
         Scanner scanner = new Scanner(System.in);
         DirectoryAnalyzer analyzer = new DirectoryAnalyzer();
@@ -25,20 +20,16 @@ public class DirectoryAnalyzerApp {
 
         while (continueRunning) {
             try {
-                // Get directory path from user
                 System.out.print("\nPlease enter the directory path to analyze: ");
                 String directoryPath = scanner.nextLine().trim();
 
-                // Validate if path is not empty
                 if (directoryPath.isEmpty()) {
                     System.out.println("Error: Directory path cannot be empty. Please try again.");
                     continue;
                 }
 
-                // Perform analysis
                 AnalysisResult result = analyzer.analyzeDirectory(directoryPath);
 
-                // Display results
                 displayResults(result);
 
             } catch (SecurityException e) {
@@ -48,7 +39,7 @@ public class DirectoryAnalyzerApp {
                 System.out.println("Error: " + e.getMessage());
             }
 
-            // Ask user if they want to analyze another directory
+
             System.out.print("\nWould you like to analyze another directory? (yes/no): ");
             String response = scanner.nextLine().trim().toLowerCase();
 
@@ -61,10 +52,7 @@ public class DirectoryAnalyzerApp {
         scanner.close();
     }
 
-    /**
-     * Displays the analysis results in a clear format
-     * @param result The analysis result to display
-     */
+
     private void displayResults(AnalysisResult result) {
         System.out.println("\n=== Analysis Results ===");
         System.out.println("Directory: " + result.getDirectoryPath());
