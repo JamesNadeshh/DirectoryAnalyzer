@@ -2,18 +2,10 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Core analyzer class that performs directory analysis operations.
- * This class is responsible for scanning directories and counting Java files and solved issues.
- */
+
 public class DirectoryAnalyzer {
 
-    /**
-     * Analyzes the specified directory and returns analysis results
-     * @param directoryPath The path of the directory to analyze
-     * @return AnalysisResult containing the analysis data
-     * @throws IllegalArgumentException if the directory path is invalid
-     */
+
     public AnalysisResult analyzeDirectory(String directoryPath) {
         // Validate directory existence and accessibility
         File directory = validateDirectory(directoryPath);
@@ -32,12 +24,6 @@ public class DirectoryAnalyzer {
         return new AnalysisResult(directoryPath, javaFiles.size(), solvedIssueFiles.size());
     }
 
-    /**
-     * Validates that the directory exists and is accessible
-     * @param directoryPath The path to validate
-     * @return File object representing the valid directory
-     * @throws IllegalArgumentException if directory is invalid
-     */
     private File validateDirectory(String directoryPath) {
         if (directoryPath == null || directoryPath.trim().isEmpty()) {
             throw new IllegalArgumentException("Directory path cannot be null or empty.");
@@ -60,11 +46,7 @@ public class DirectoryAnalyzer {
         return directory;
     }
 
-    /**
-     * Filters files to get only Java files (.java extension)
-     * @param files Array of files to filter
-     * @return List of Java files
-     */
+
     private List<File> filterJavaFiles(File[] files) {
         List<File> javaFiles = new ArrayList<>();
 
@@ -77,12 +59,7 @@ public class DirectoryAnalyzer {
         return javaFiles;
     }
 
-    /**
-     * Identifies files that represent solved issues based on naming convention
-     * Assumption: Solved issues are files containing "issue", "problem", or "bug" in their names
-     * @param javaFiles List of Java files to analyze
-     * @return List of files identified as solved issues
-     */
+
     private List<File> identifySolvedIssues(List<File> javaFiles) {
         List<File> solvedIssueFiles = new ArrayList<>();
         String[] issueKeywords = {"issue", "problem", "bug", "fix"};
@@ -106,12 +83,7 @@ public class DirectoryAnalyzer {
         return solvedIssueFiles;
     }
 
-    /**
-     * Checks if a string contains any of the specified keywords
-     * @param text The text to check
-     * @param keywords The keywords to search for
-     * @return true if any keyword is found, false otherwise
-     */
+
     private boolean containsAnyKeyword(String text, String[] keywords) {
         for (String keyword : keywords) {
             if (text.contains(keyword)) {
