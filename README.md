@@ -2,10 +2,10 @@
 
 ## Assignment Details
 - **Subject**: STIWK3014 Real-Time Programming
-- **Assignment**: 1 (Individual)
+- **Assignment**: Individual Assignment 1
 - **Student Name**: NADESH RAGUNATH
 - **Matrix Number**: 294031
-- **Academic Year**: 2023/2024
+- **Academic Session**: A251
 
 ## Project Overview
 The Directory Analysis System is a Java application that analyzes directories to count Java files and identify solved issues based on intelligent filename pattern recognition.
